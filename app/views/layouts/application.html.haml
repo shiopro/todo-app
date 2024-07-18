@@ -8,7 +8,18 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
   %body
+    %header.header
+      %p.header_pageTitle Boards
+      -if user_signed_in?
+        .dropdown 
+          = image_tag 'default-avatar.png', class: 'header_avatar dropbtn'
+          .dropdown-content 
+            %a{:href => "#"} Profile
+            = link_to 'Sign out', destroy_user_session_path, data: { turbo_method: 'delete' }
+      - else
+        = link_to 'Sign in', new_user_session_path, class: 'header_loginBtn'
     %p.notice= notice
     %p.alert= alert
     = yield
