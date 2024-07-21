@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     if @board.save
       redirect_to home_path(@board)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
