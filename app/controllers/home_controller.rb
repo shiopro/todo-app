@@ -1,13 +1,11 @@
 class HomeController < ApplicationController
-  def index
-  end
+  def index; end
 
   def new
     @board = current_user.boards.build
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @board = current_user.boards.build(board_params)
@@ -20,6 +18,7 @@ class HomeController < ApplicationController
   end
 
   private
+
   def board_params
     params.require(:board).permit(:title, :description)
   end
