@@ -8,7 +8,7 @@
         .board_description 
           = board.description
         .board_detail 
-          = image_tag 'Users.png', class: 'icon'
+          = image_tag board.user.avatar_image, class: 'icon'
           .board_detail_actions 
             .dropdown
               = image_tag 'Combined Shape.png', class: 'dropbtn'
