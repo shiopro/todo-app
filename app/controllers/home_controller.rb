@@ -7,7 +7,8 @@ class HomeController < ApplicationController
     @board = current_user.boards.build
   end
 
-  def show; end
+  def show
+  end
 
   def create
     @board = current_user.boards.build(board_params)
@@ -19,8 +20,21 @@ class HomeController < ApplicationController
     end
   end
 
-  private
+  def edit
+    @board = current_user.boards.find(params[:id])
+  end
 
+  def update
+    @board = current_user.boards.find(params[:id])
+    if @board.update(board_params)
+      redirect_to root_path(@board), notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  private
   def board_params
     params.require(:board).permit(:title, :description)
   end

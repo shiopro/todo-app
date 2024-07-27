@@ -9,12 +9,13 @@
           = board.description
         .board_detail 
           = image_tag board.user.avatar_image, class: 'icon'
-          .board_detail_actions 
-            .dropdown
-              = image_tag 'Combined Shape.png', class: 'dropbtn'
-              .dropdown-content.mini
-                %a{:href => "#"} Edit
-                %a{:href => "#"} Delete
+          - if user_signed_in? && current_user.has_written?(board)
+            .board_detail_actions 
+              .dropdown
+                = image_tag 'Combined Shape.png', class: 'dropbtn'
+                .dropdown-content.mini
+                  = link_to 'Edit', edit_home_path(board)
+                  %a{:href => "#"} Delete
   .board_new
     = link_to new_home_path do
       %p + Add new board
