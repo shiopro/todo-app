@@ -17,11 +17,16 @@
 
   &.mini {
     min-width: 100px;
+
+    a {
+      font-size: 12px;
+      padding-top: 3px;
+    }
   }
 }
 
 .dropdown-content a {
-  padding: 5px 12px;
+  padding: 8px 16px;
   text-decoration: none;
   display: block;
   color: $text-base-color;
