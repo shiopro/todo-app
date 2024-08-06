@@ -2,7 +2,7 @@
 
 $avatar-size: 30px;
 
-.board {
+.board, .card {
   background-color: $basic-bg-color;
   border: none;
   border-radius: 10px;
@@ -16,35 +16,45 @@ $avatar-size: 30px;
   }
 
   &_title {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 6px;
     line-height: 24px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &_description {
-    font-size: 14px;
+    margin-top: 9px;
+    font-size: 12px;
     opacity: 0.6;
-    line-height: 19px;
+    line-height: 16px;
   }
 
   &_detail {
-    padding-top: 29px;
-    display: flex;
+    padding-top: 20px;
     font-size: 10px;
 
     .icon {
       width: $avatar-size;
       height: $avatar-size;
       border-radius: 100%;
+      margin-top: 36px;
       margin-bottom: 20px;
     }
 
     &_actions {
       cursor: pointer;
       right: 0px;
-      bottom: 20px;
+      bottom: 30px;
       position: absolute;
+      display: flex;
+      justify-content: space-between;
     }
+  }
+
+  &_end_date {
+    font-size: 10px;
+    line-height: 10px;
   }
 
   &_new {

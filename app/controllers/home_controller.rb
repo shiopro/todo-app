@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+
   def index
     @boards = Board.all
   end
@@ -8,6 +9,8 @@ class HomeController < ApplicationController
   end
 
   def show
+    @board = Board.find(params[:id])
+    @tasks = @board.tasks
   end
 
   def create
