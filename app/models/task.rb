@@ -1,27 +1,32 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: tasks
 #
 #  id          :bigint           not null, primary key
 #  description :text
+#  end_date    :datetime
 #  title       :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  board_id    :bigint           not null
 #  user_id     :bigint           not null
 #
 # Indexes
 #
-#  index_boards_on_user_id  (user_id)
+#  index_tasks_on_board_id  (board_id)
+#  index_tasks_on_user_id   (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Board < ApplicationRecord
-  belongs_to :user
+class Task < ApplicationRecord
+  has_one_attached :eyecatch
 
-  has_many :tasks, dependent: :destroy
+  belongs_to :user
+  belongs_to :board
 
   validates :title, presence: true
   validates :description, presence: true
+  validates :end_date, presence: true
 end

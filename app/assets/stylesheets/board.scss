@@ -1,13 +1,14 @@
 @import './variables';
 
 $avatar-size: 30px;
+$comment-icon: 25px;
 
-.board {
+.board, .card {
   background-color: $basic-bg-color;
   border: none;
   border-radius: 10px;
   margin-top: 35px;
-  padding: 32px 20px 0;
+  padding: 20px 20px 0;
   cursor: pointer;
 
   &_content {
@@ -16,35 +17,58 @@ $avatar-size: 30px;
   }
 
   &_title {
-    font-size: 18px;
+    font-size: 15px;
     margin-bottom: 6px;
     line-height: 24px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &_description {
-    font-size: 14px;
+    margin-top: 12px;
+    font-size: 12px;
     opacity: 0.6;
-    line-height: 19px;
+    line-height: 16px;
   }
 
   &_detail {
-    padding-top: 29px;
-    display: flex;
+    padding-top: 20px;
     font-size: 10px;
+    display: flex;
+    justify-content: space-between;
 
     .icon {
       width: $avatar-size;
       height: $avatar-size;
       border-radius: 100%;
+      margin-top: 36px;
       margin-bottom: 20px;
     }
 
     &_actions {
       cursor: pointer;
       right: 0px;
-      bottom: 20px;
+      bottom: 30px;
       position: absolute;
+      display: flex;
+      justify-content: space-between;
     }
+  }
+
+  &_image {
+    width: 100%;
+    margin: auto;
+  
+    img {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+  }
+
+  &_end_date {
+    font-size: 10px;
+    line-height: 10px;
+    padding-left: 10px;
   }
 
   &_new {
@@ -62,4 +86,19 @@ $avatar-size: 30px;
       line-height: 24px;
     }
   }
+
+  &_comment {
+    display: flex;
+  }
+}
+
+.comment-icon {
+  width: $comment-icon;
+  height: $comment-icon;
+  margin: 42px 0 12px;
+}
+
+span {
+  margin: 48px 5px 14px;
+  font-size: 12px;
 }

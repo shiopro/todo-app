@@ -17,6 +17,11 @@
 
   &.mini {
     min-width: 100px;
+
+    a {
+      font-size: 12px;
+      padding-top: 3px;
+    }
   }
 }
 
